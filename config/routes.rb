@@ -11,7 +11,9 @@ devise_for :customers,skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  get 'admin/genres/index'
-  post 'admin/genres' => 'admin/genres#create'
+ namespace :admin do
+   resources :items
+   resources :genres
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
