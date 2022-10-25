@@ -11,13 +11,14 @@ class Admin::GenresController < ApplicationController
     genre = Genre.new(genre_params)
     # 3. データをデータベースに保存するためのsaveメソッド実行
     genre.save
-    # 4. トップ画面へリダイレクト
-    redirect_to '/top'
+    
+    redirect_to '/admin/genres'
     
   end
   
   def edit
     @genre = Genre.find(params[:id])
+    
   end
   
   def update
