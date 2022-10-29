@@ -31,7 +31,7 @@ class Admin::ItemsController < ApplicationController
   private
   # ストロングパラメータ
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :genre_id, :is_active)
+    params.require(:item).permit(:name, :introduction, :price, :genre_id, :is_active,:image)
   end
 
 end

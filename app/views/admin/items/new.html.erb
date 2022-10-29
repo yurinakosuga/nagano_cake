@@ -1,25 +1,28 @@
-<h5>商品新規登録</h5>
-
-<%= form_with model: @item, url:admin_items_path do |f| %>
-<p>商品画像</p>
-<%= f.file_field :image, accept: "image/*" %>
-<p>商品名</p>
-<%= f.text_field :name %>
-<p>商品説明</p>
-<%= f.text_area :introduction %>
-<p>ジャンル</p>
-<%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), prompt: '—選択してください—'
- %>
-<p>税抜価格</p>
-<%= f.text_field :price %>円
-<p>販売ステータス</p>
-<%= f.radio_button :is_active, true %>
-<%= f.label :is_active, "販売中" %>
-<%= f.radio_button :is_active, false %>
-<%= f.label :is_active, "販売停止中" %>
-
-
-
-
-     <%= f.submit '新規登録' %>
-  <% end %>
+<div class="container mt-5">
+  <div class="row">
+   
+      <h5>商品新規登録</h5>
+    
+      <%= form_with model: @item, url:admin_items_path do |f| %>
+    　<p>商品画像</p>
+      <%= f.file_field :image, accept: "image/*" %>
+      <p>商品名</p>
+      <%= f.text_field :name %>
+      <p>商品説明</p>
+      <%= f.text_area :introduction %>
+      <p>ジャンル</p>
+      <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), prompt: '—選択してください—'
+       %>
+      <p>税抜価格</p>
+      <%= f.text_field :price %>円
+      <p>販売ステータス</p>
+      <%= f.radio_button :is_active, true %>
+      <%= f.label :is_active, "販売中" %>
+      <%= f.radio_button :is_active, false %>
+      <%= f.label :is_active, "販売停止中" %>
+      
+           <%= f.submit '新規登録', class:"btn btn-success" %>
+        <% end %>
+    
+  </div>
+</div>
