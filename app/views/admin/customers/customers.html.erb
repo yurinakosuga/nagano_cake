@@ -1,27 +1,26 @@
 <div class="container mt-5">
   <div class="row">
+    <h5>会員一覧</h5>
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税抜価格</th>
-          <th>ジャンル</th>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
           <th>ステータス</th>
         </tr>
       </thead>
       <tbody>
-        <% @items.each do |item| %>
+        <% @costomers.each do |customer| %>
      
           <tr>
-            <td><%= item.id %></td>
-            <td><%= link_to item.name, admin_item_path(item.id) %></td>
-            <td><%= item.price %></td>
-            <td><%= item.genre_id %></td>
+            <td><%= customer.id %></td>
+            <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+            <td><%= customer.email %></td>
             <% if item.is_active %>
-              <td>販売中</td>
+              <td>有効</td>
           　<% else %>
-              <td>販売停止中</td>
+              <td>退会</td>
             <% end %> 
                  
             
