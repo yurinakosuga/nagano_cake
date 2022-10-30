@@ -11,13 +11,13 @@
         </tr>
       </thead>
       <tbody>
-        <% @costomers.each do |customer| %>
+        <% @customers.each do |customer| %>
      
           <tr>
             <td><%= customer.id %></td>
-            <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+            <td><%= link_to customer.last_name, admin_customer_path(customer.id) %></td>
             <td><%= customer.email %></td>
-            <% if item.is_active %>
+            <% if customer.is_deleted %>
               <td>有効</td>
           　<% else %>
               <td>退会</td>
