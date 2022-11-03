@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row">
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>商品一覧</th>
+          
+       
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+     
+          <tr>
+            
+            <td><%= link_to item.name, item_path(item.id) %></td>
+            <td>¥<%= (item.price * 1.1) %></td>
+           
+            
+                 
+            
+          </tr>
+        <% end %>
+          
+      </tbody>
+    </table>
+  </div>
+</div>

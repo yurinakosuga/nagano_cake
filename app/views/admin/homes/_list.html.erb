@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>NaganoCake</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <div class="container">
@@ -50,39 +38,6 @@
                   <span>ログアウト</span>
                 <% end %>
               </li>
-            <% end %>
-            
-            <% if customer_signed_in? %>
-              <li>
-                <%= link_to  root_path, class: "nav-link text-light" do %>
-                  
-                  <span>マイページ</span>
-                <% end %>
-              </li>
-              
-              <li>
-                <%= link_to  admin_items_path, class: "nav-link text-light" do %>
-                  
-                  <span>商品一覧</span>
-                <% end %>
-              </li>
-              
-              <li>
-                <%= link_to  root_path, class: "nav-link text-light" do %>
-                  
-                  <span>カート</span>
-                <% end %>
-              </li>
-              
-              <li>
-                <%= link_to  destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
-                  
-                  <span>ログアウト</span>
-                <% end %>
-              </li>
-              
-              
-              
             <% else %>
               <li>
                 <%= link_to  root_path, class: "nav-link text-light" do %>
@@ -98,7 +53,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to  new_customer_registration_path, class: "nav-link text-light" do %>
+                <%= link_to  new_user_registration_path, class: "nav-link text-light" do %>
                   
                   <span>新規登録</span>
                 <% end %>
@@ -127,5 +82,3 @@
         </div>
       </div>
     </footer>
-  </body>
-</html>
