@@ -1,7 +1,13 @@
 class Public::CartItemsController < ApplicationController
   def index
+    @cart_items = current_customer.cart_items
+    @total = 0
+     @cart_items.each do |cart_item|
+       @total = @total + cart_item.subtotal
+     end
     
   end
+  
   
   def create
     
@@ -16,6 +22,7 @@ class Public::CartItemsController < ApplicationController
   end
   
   def destroy_all
+    current_user.cart_items.destroy_all
     
   end
   
