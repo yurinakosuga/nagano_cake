@@ -10,7 +10,11 @@ class Public::CartItemsController < ApplicationController
   
   
   def create
-    
+    cart_item = CartItem.new(cart_item_params)
+    # 3. データをデータベースに保存するためのsaveメソッド実行
+    cart_item.save
+    # 4. トップ画面へリダイレクト
+    redirect_to '/cart_items'
   end
   
   def update
