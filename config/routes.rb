@@ -8,9 +8,10 @@ devise_for :customers,skip: [:passwords], controllers: {
 root to: 'public/homes#top'
 get '/about' => 'public/homes#about'
   scope module: :public do
+      delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
       resources :items, only: [:index, :show]
       resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
-      resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+      resources :cart_items, only: [:index, :update, :destroy, :create]
       resources :orders, only: [:new, :comfirm, :complete, :create, :index, :show]
       resources :address, only: [:index, :edit, :create, :update, :destroy]
   end

@@ -2,6 +2,7 @@
   <div class="row">
     <table class="table table-hover table-inverse">
       <h4>ショッピングカート</h4>
+      <h4><%= link_to "カートを空にする",cart_items_destroy_all_path, method: :delete ,class: "btn btn-sm btn-danger" %></h4> 
       
       <thead>
           <th>商品名</th>
@@ -23,6 +24,7 @@
            　　<%= f.submit '変更', class:"btn btn-success" %>
         　　　　<% end %></td>
             <td><%= cart_item.subtotal%></td>
+            <% @total = @total + cart_item.subtotal %>
             <td><%= link_to "削除する",cart_item_path(cart_item.id), method: :delete ,class: "btn btn-sm btn-danger" %></td> 
             
                  
@@ -35,6 +37,6 @@
           
       </tbody>
     </table>
-    <%= @total %>
+    合計金額<%= @total %>
   </div>
 </div>
