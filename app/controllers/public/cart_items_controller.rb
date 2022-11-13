@@ -23,7 +23,9 @@ class Public::CartItemsController < ApplicationController
   end
   
   def destroy
-    
+    @cart_item = CartItem.find(params[:id])  #削除するPostImageレコードを取得
+    @cart_item.destroy#削除
+    redirect_to cart_items_path
   end
   
   def destroy_all
