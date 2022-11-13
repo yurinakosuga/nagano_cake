@@ -9,6 +9,7 @@ root to: 'public/homes#top'
 get '/about' => 'public/homes#about'
   scope module: :public do
       delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+      post '/orders/confirm' => 'orders#confirm'
       resources :items, only: [:index, :show]
       resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
       resources :cart_items, only: [:index, :update, :destroy, :create]
