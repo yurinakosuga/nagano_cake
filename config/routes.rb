@@ -7,11 +7,13 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 root to: 'public/homes#top'
 get '/about' => 'public/homes#about'
+get '/customers/unsubscribe' => 'public/customers#unsubscribe'
+patch '/customers/withdraw' => 'public/customers#withdraw' 
   scope module: :public do
       delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
       post '/orders/confirm' => 'orders#confirm'
       resources :items, only: [:index, :show]
-      resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+      resources :customers, only: [:show, :edit, :update]
       resources :cart_items, only: [:index, :update, :destroy, :create]
       resources :orders, only: [:new, :comfirm, :complete, :create, :index, :show]
       resources :address, only: [:index, :edit, :create, :update, :destroy]

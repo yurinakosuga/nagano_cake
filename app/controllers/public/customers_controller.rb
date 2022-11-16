@@ -1,11 +1,5 @@
 class Public::CustomersController < ApplicationController
   
-  def index
-    @customer = Customer.new
-    @customers = Customer.all
-  end
-  
-  
   def show
     @customer = Customer.find(params[:id]) 
   end
@@ -17,8 +11,15 @@ class Public::CustomersController < ApplicationController
   def update
     customer = Item.find(params[:id])
     customer.update(customer_params)
-    redirect_to admin_item_path(item.id)  
+    redirect_to item_path(item.id)  
   end
+  
+  def unsubscribe
+  end
+  
+  def withdraw
+  end
+   
   
   private
   # ストロングパラメータ
