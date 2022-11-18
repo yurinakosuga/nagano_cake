@@ -1,9 +1,8 @@
 
     　<%= @item.name %>
  
-      <%= (@item.price * 1.1).floor %>
+      ￥<%= (@item.price * 1.1).floor %>(税込)
  
-      
       
      
      <%= form_with model: @cart_item, url: cart_items_path do |f| %> 

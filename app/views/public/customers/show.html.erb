@@ -4,46 +4,46 @@
       <h5>マイページ</h5>
       
       <h5>登録情報</h5>
-       <%= link to '編集する', edit_customer_path(@customer.id)   class:"btn btn-success" %>
+       <%= link_to '編集する', edit_customer_path(@customer.id), class:"btn btn-success" %>
 　　　　<div class="field">
           氏名
-        　<%= last_name %>
-        　<%= first_name %>
+        　<%= @customer.last_name %>
+        　<%= @customer.first_name %>
         </div>
   
         <div class="field">
           フリガナ
-          <%= last_name_kana %>
-          <%= first_name_kana %>
+          <%= @customer.last_name_kana %>
+          <%= @customer.first_name_kana %>
         </div>
         
         <div class="field">
           郵便番号
-          <%= postal_code %>
+          <%= @customer.postal_code %>
         </div>
         
         <div class="field">
           住所
-          <%= address %>
+          <%= @customer.address %>
         </div>
         
         <div class="field">
           電話番号
-          <%= telephone_number %>
+          <%= @customer.telephone_number %>
         </div>
         
         <div class="field">
           メールアドレス
-          <%= email %>
+          <%= @customer.email %>
         </div>
         
        
       
       <h5>配送先
-           <%= link to '一覧を見る', addresses_path, class:"btn btn-success" %>
+           <%= link_to '一覧を見る', root_path, class:"btn btn-primary" %>
       </h5>
       <h5>注文履歴
-           <%= link to '一覧を見る', orders_path, class:"btn btn-success" %>
+           <%= link_to '一覧を見る', root_path, class:"btn btn-primary" %>
       </h5>
       
       
