@@ -18,7 +18,7 @@
     <tr>
       <th scope="col">郵便番号</th>
       <th scope="col">住所</th>
-      <th scope="col">Last</th>
+      <th scope="col">宛名</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -28,6 +28,10 @@
       <td><%= address.postal_code %></td>
       <td><%= address.adress %></td>
       <td><%= address.name %></td>
+      <td>
+        <%= link_to "編集する", root_path, class:"btn btn-success" %>
+        <%= link_to "削除する", root_path, class:"btn btn-sm btn-danger" %>
+      </td>
     </tr>
     <% end %>
   </tbody>
