@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="row">
    
-      <h5>商品新規登録</h5>
+      <h5>商品変更</h5>
     　<%= form_with model: @item, url:admin_item_path(@item.id), method: :patch do |f| %>
-      <
+      
     　<p>商品画像</p>
       <%= f.file_field :image, accept: "image/*" %>
       <p>商品名</p>

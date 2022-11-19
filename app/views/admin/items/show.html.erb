@@ -1,6 +1,6 @@
 <h5>商品詳細</h5>
 
-    
+ <%= image_tag @item.image, size: "5×5" %>   
  <p>商品名</p>
  <%= @item.name %>
  <p>商品説明</p>
@@ -10,7 +10,7 @@
  <p>税込価格<br>
  (税抜価格)</p>
  <%= (@item.price * 1.1).floor %>
- (<%= @item.price %>)
+ (<%= @item.price %>)円
  <p>販売ステータス</p>                  
  <% if @item.is_active %>
  <td>販売中</td>
