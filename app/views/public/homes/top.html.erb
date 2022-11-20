@@ -4,6 +4,12 @@
 購入には会員登録が必要になります。
 
 <h5>新着商品</h5>
+ <% @items.each do |item| %>
+          <%= image_tag item.get_image, size: "5×5" %> 
+          <%= link_to item.name, item_path(item.id) %>
+          ¥<%= (item.price * 1.1).floor  %>
+        
+        <% end %>
 
 <%= link_to "全ての商品を見る", items_path %>
 
