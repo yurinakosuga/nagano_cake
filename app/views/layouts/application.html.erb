@@ -53,29 +53,30 @@
             <% end %>
             
             <% if customer_signed_in? %>
+            ようこそ、<%= current_customer.last_name%>さん！
               <li>
-                <%= link_to  root_path, class: "nav-link text-light" do %>
+                <%= link_to  customer_path(current_customer.id), class: "nav-link text-light" do %>
                   
                   <span>マイページ</span>
                 <% end %>
               </li>
               
               <li>
-                <%= link_to  admin_items_path, class: "nav-link text-light" do %>
+                <%= link_to  items_path, class: "nav-link text-light" do %>
                   
                   <span>商品一覧</span>
                 <% end %>
               </li>
               
               <li>
-                <%= link_to  root_path, class: "nav-link text-light" do %>
+                <%= link_to  cart_items_path, class: "nav-link text-light" do %>
                   
                   <span>カート</span>
                 <% end %>
               </li>
               
               <li>
-                <%= link_to  destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
+                <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
                   
                   <span>ログアウト</span>
                 <% end %>
@@ -85,14 +86,14 @@
               
             <% else %>
               <li>
-                <%= link_to  root_path, class: "nav-link text-light" do %>
+                <%= link_to  about_path, class: "nav-link text-light" do %>
                   
                   <span>About</span>
                 <% end %>
               </li>
               
               <li>
-                <%= link_to  admin_items_path, class: "nav-link text-light" do %>
+                <%= link_to  items_path, class: "nav-link text-light" do %>
                   
                   <span>商品一覧</span>
                 <% end %>
@@ -104,7 +105,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to   new_admin_session_path, class: "nav-link text-light" do %>
+                <%= link_to   new_customer_session_path, class: "nav-link text-light" do %>
                   
                   <span>ログイン</span>
                 <% end %>

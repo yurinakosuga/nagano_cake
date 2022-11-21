@@ -18,10 +18,11 @@ patch '/customers/withdraw' => 'public/customers#withdraw'
   scope module: :public do
       delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
       post '/orders/confirm' => 'orders#confirm'
+      get '/orders/complete' => 'orders#complete'
       resources :items, only: [:index, :show]
       resources :customers, only: [:show, :edit, :update]
       resources :cart_items, only: [:index, :update, :destroy, :create]
-      resources :orders, only: [:new, :comfirm, :complete, :create, :index, :show]
+      resources :orders, only: [:new, :create, :index, :show]
       resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 # 管理者用

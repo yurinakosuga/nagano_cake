@@ -19,18 +19,15 @@ class Public::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
-    redirect_to cart_items_path
+    redirect_to cart_items_path(@cart_item.id)
   end
   
   def destroy
-    @cart_item = CartItem.find(params[:id])  #削除するPostImageレコードを取得
-    @cart_item.destroy#削除
-    redirect_to cart_items_path
+    
   end
   
   def destroy_all
-    current_customer.cart_items.destroy_all
-    redirect_to cart_items_path
+    current_user.cart_items.destroy_all
     
   end
   
