@@ -15,7 +15,8 @@ class Public::OrdersController < ApplicationController
   
   def create
     @order = Order.new(order_params)
-       
+    @order.customer_id = current_customer.id
+    @order.status = params[:order][:status]
         @order.save
 
         # ordered_itmemの保存
@@ -25,7 +26,6 @@ class Public::OrdersController < ApplicationController
           @order_detail.amount = cart_item.amount #商品の個数を注文商品の個数に代入
           @order_detail.price = (cart_item.item.price*1.1).floor #消費税込みに計算して代入
           @order_detail.order_id =  @order.id#注文商品に注文idを紐付け
-          @order_detail.making_status =  0
           @order_detail.save #注文商品を保存
         end #ループ終わり
 
@@ -40,6 +40,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.shipping_cost = 800
     @order.payment_method = params[:order][:payment_method]
+    @order.status = params[:order][:status]
     
     if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
@@ -63,7 +64,7 @@ class Public::OrdersController < ApplicationController
   
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :total_payment, :status)
   end
   
 end
