@@ -1,4 +1,6 @@
 class OrderDetail < ApplicationRecord
+  belongs_to :order
+  belongs_to :item
   enum making_status: {
     cannot_be_manufactured: 0, 
     waiting_for_production: 1, 

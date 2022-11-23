@@ -12,24 +12,26 @@
   
         <div class="field">
           配送先
+          <%= @order.postal_code %>
           <%= @order.address %>
+          <%= @order.name %>
           
         </div>
         
         <div class="field">
           支払方法
-          <%= @order.payment_method %>
+          <%= @order.payment_method_i18n %>
         </div>
         
         <div class="field">
           ステータス
-          <%= @order.status %>
+          <%= @order.status_i18n %>
         </div>
         
         <h6>請求情報</h6>
 　　　　<div class="field">
           商品合計
-        　<%= @total %>
+        　<%= @order.total_payment - @order.shipping_cost  %>
         　
         </div>
   
@@ -44,14 +46,33 @@
           <%= @order.total_payment %>
         </div>
         
-        <h6>注文内容</h6>
-　　　
-        
-        
-       
-      
-      
-        
-    
-  </div>
-</div>
+ <div class="container mt-5">
+  <div class="row">
+    <table class="table table-hover table-inverse">
+      <h6>注文内容</h6>
+      <thead>
+          <th>商品</th>
+          <th>単価(税込)</th>
+          <th>個数</th>
+          <th>小計</th>
+          
+      </thead>
+      <tbody>
+          <tr>
+            <td>
+              <% @order.order_details.each do |order_detail| %>
+                <%= order_detail.item.name %>
+                <%= order_detail.item.price %>
+                <%= order_detail.amount %>
+                <%= order_detail.price * order_detail.amount%>
+                
+              <% end %>  
+             
+            </td>
+            
+          </tr>
+         
+      </tbody>
+    </table>
+ </div>
+ </div>

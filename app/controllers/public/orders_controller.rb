@@ -6,20 +6,22 @@ class Public::OrdersController < ApplicationController
   end
   
   def index
-    @order = Order.new 
+   
     @orders = Order.all
     
     
   end  
   
   def show
+    @order = Order.find(params[:id])
+    @total = 0 
     
   end  
   
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.status = params[:order][:status]
+    
         @order.save
 
         # ordered_itmemの保存
@@ -67,7 +69,7 @@ class Public::OrdersController < ApplicationController
   
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :total_payment, :status)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_cost, :total_payment)
   end
   
 end
