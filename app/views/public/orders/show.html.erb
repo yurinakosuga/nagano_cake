@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="row">
+   
+      <h5>注文履歴詳細</h5>
+      
+      <h6>注文情報</h6>
+　　　　<div class="field">
+          注文日
+        　<%= @order.created_at %>
+        　
+        </div>
+  
+        <div class="field">
+          配送先
+          <%= @order.address %>
+          
+        </div>
+        
+        <div class="field">
+          支払方法
+          <%= @order.payment_method %>
+        </div>
+        
+        <div class="field">
+          ステータス
+          <%= @order.status %>
+        </div>
+        
+        <h6>請求情報</h6>
+　　　　<div class="field">
+          商品合計
+        　<%= @total %>
+        　
+        </div>
+  
+        <div class="field">
+          配送料
+          <%= @order.shipping_cost %>
+          
+        </div>
+        
+        <div class="field">
+          ご請求額
+          <%= @order.total_payment %>
+        </div>
+        
+        <h6>注文内容</h6>
+　　　
+        
+        
+       
+      
+      
+        
+    
+  </div>
+</div>
