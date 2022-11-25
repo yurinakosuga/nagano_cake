@@ -3,7 +3,7 @@ class Admin::OrderDetailsController < ApplicationController
     order_detail = OrderDetail.find(params[:id])
     order_detail.update(order_detail_params)
     redirect_to root_path  
-  end
+   end
   
   private
   # ストロングパラメータ
