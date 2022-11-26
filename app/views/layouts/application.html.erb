@@ -33,7 +33,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to  books_path, class: "nav-link text-light" do %>
+                <%= link_to  admin_root_path, class: "nav-link text-light" do %>
                   
                   <span>注文履歴一覧</span>
                 <% end %>
@@ -50,9 +50,12 @@
                   <span>ログアウト</span>
                 <% end %>
               </li>
-            <% end %>
             
-            <% if customer_signed_in? %>
+            
+           
+            
+            
+            <% elsif customer_signed_in? %>
             ようこそ、<%= current_customer.last_name%>さん！
               <li>
                 <%= link_to  customer_path(current_customer.id), class: "nav-link text-light" do %>
