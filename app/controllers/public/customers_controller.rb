@@ -9,9 +9,9 @@ class Public::CustomersController < ApplicationController
   end
   
   def update
-    customer = Item.find(params[:id])
+    customer = current_customer
     customer.update(customer_params)
-    redirect_to item_path(item.id)  
+    redirect_to customer_path(customer.id)  
   end
   
   def unsubscribe
@@ -25,11 +25,11 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
    
-  
+
   private
   # ストロングパラメータ
-  def item_params
-    params.require(:customer).permit(:last_name, :first_name, :first_name_kana, :email, :postal_code, :address, :telephone_number, :is_deleted)
+  def customer_params
+    params.require(:customer).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :telephone_number, :is_deleted)
   end
 
 end
